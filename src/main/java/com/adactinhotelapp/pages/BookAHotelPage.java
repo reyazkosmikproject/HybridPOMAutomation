@@ -123,7 +123,7 @@ public void hotel_LastName_Txt(String text)
 
 public void hotel_BillingAddress(String text)
 {
-		type(hotel_BillingAddress,text );
+	type(hotel_BillingAddress,text );
 }
 
 public void hotel_CreditCardNum(String text)
