@@ -1,13 +1,9 @@
 package com.adactinhotelapp.pages;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
 
 public class Registerpage extends Page{
 
@@ -17,16 +13,6 @@ public class Registerpage extends Page{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@BeforeTest
-	public void reg() {
-	driver=new ChromeDriver();
-	driver.get("https://adactinhotelapp.com/");
-	driver.manage().window().maximize();
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-	}
-	
-	@FindBy(xpath="//td[@class=\"login_register\"]")
-	WebElement registerbtn;
 	
 	@FindBy(xpath="//input[@id=\"username\"]")
 	WebElement username;
@@ -52,9 +38,9 @@ public class Registerpage extends Page{
 	@FindBy(xpath="//input[@id=\"Submit\"]")
 	WebElement submit;
 	
-	public void registerbtn() {
-		click(registerbtn);
-	}
+	@FindBy(xpath="//input[@id=\"Reset\"]")
+	WebElement resetBtn;
+	
 	
 	public void username(String user) {
 		type(username, user);
@@ -88,7 +74,6 @@ public class Registerpage extends Page{
 		click(submit);
 	}
 	
-	
-	
+
 	
 }
