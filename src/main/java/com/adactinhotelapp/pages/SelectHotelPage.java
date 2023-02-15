@@ -41,11 +41,17 @@ public class SelectHotelPage extends Page {
 		
 		for(int i=1;i<allRows.size();i++)
 		{
-			
+		
 			verifyEquals(driver.findElement(By.xpath("//form[@name='select_form']/table/tbody/tr[2]/descendant::tr/td/input[starts-with(@name,'location_"+"i"+"')]")).getAttribute("value"), location);
+							
+			verifyEquals(driver.findElement(By.xpath("//form[@name='select_form']/table/tbody/tr[2]/descendant::tr//td/input[starts-with(@name,'rooms_"+"i"+"')]")).getAttribute("value"), noOfRooms);
 			
-			
+			verifyEquals(driver.findElement(By.xpath("//form[@name='select_form']/table/tbody/tr[2]/descendant::tr//td/input[starts-with(@name,'arr_date_"+"i"+"')]")).getAttribute("value"), arrDate);
+	
+			verifyEquals(driver.findElement(By.xpath("//form[@name='select_form']/table/tbody/tr[2]/descendant::tr//td/input[starts-with(@name,'dep_date_1"+"i"+"')]")).getAttribute("value"), depDate);
+		
 		}
+		
 		
 		
 	}

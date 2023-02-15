@@ -4,9 +4,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+//scripted by Shiva
 public class SearchHotelPage extends Page {
 
-	public SearchHotelPage() {
+	public SearchHotelPage() { 
 		PageFactory.initElements(driver, this);
 	}
 
