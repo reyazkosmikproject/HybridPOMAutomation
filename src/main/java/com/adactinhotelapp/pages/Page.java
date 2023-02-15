@@ -17,7 +17,7 @@ import com.aventstack.extentreports.Status;
 
 public class Page {
 	
-	public WebDriver driver;
+	public static WebDriver driver;
 	
 	public static Properties config=new Properties();
 	

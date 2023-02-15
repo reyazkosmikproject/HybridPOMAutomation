@@ -25,6 +25,13 @@ public class LoginPage extends Page {
 	@FindBy(xpath="//input[@name='login']")
 	WebElement loginButton;
 	
+	@FindBy(xpath = "//a[text()='New User Register Here']")
+	WebElement registerLink;
+	
+	
+	@FindBy(xpath = "//a[text()='Forgot Password?']")
+	WebElement forgotPasswordLink;
+	
 	
 	public void usernameTextBox(String text)
 	{
@@ -46,5 +53,15 @@ public class LoginPage extends Page {
 		click(loginButton);
 	}
 	
+	
+	public void registerLink()
+	{
+		click(registerLink);
+	}
+	
+	public void forgotPasswordLink()
+	{
+		click(forgotPasswordLink);
+	}
 
 }

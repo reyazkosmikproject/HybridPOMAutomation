@@ -65,6 +65,9 @@ WebElement hotel_Cc_CVV;
 @FindBy(xpath="//input[@id='book_now']")
 WebElement hotel_BookNow_Btn;
 
+@FindBy(xpath="//input[@id='cancel']")
+WebElement hotel_cancel_Btn;
+
 public void hotel_nameDisplay_Txt(String text)
 {
 	verifyEquals((hotel_nameDisplay_Txt.getText()),text);	
@@ -154,6 +157,11 @@ public void hotel_Cc_CVV(String text)
 public void hotel_BookNow_Btn(WebElement hotel_BookNow_Btn)
 {
 	click(hotel_BookNow_Btn);
+}
+
+public void hotel_cancel_Btn(WebElement hotel_cancel_Btn)
+{
+	click(hotel_cancel_Btn);
 }
 
 
