@@ -7,6 +7,9 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -14,6 +17,8 @@ import org.testng.ITestContext;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Page {
 	
@@ -27,7 +32,7 @@ public class Page {
 	
 	public static ExtentTest test;
 	
-	public TopMenu menu;
+	public static TopMenu menu;
 	
 	public ITestContext context;
 	
@@ -35,7 +40,7 @@ public class Page {
 	{
 		
 		try {
-			fis=new FileInputStream(System.getProperty("user.dir")+"src\\test\\resources\\com\\adactinhotelapp\\properties\\config.properties");
+			fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\com\\adactinhotelapp\\properties\\config.properties");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +53,28 @@ public class Page {
 			e.printStackTrace();
 		}
 		
-		menu=new TopMenu();
+		if(driver==null)
+		{
+			if(config.getProperty("browser").equalsIgnoreCase("chrome"))
+				{
+					WebDriverManager.chromedriver().setup();
+					driver=new ChromeDriver();
+					}
+				else if(config.getProperty("browser").equalsIgnoreCase("edge"))
+				{
+					WebDriverManager.edgedriver().setup();
+					driver=new EdgeDriver();
+					}
+				
+				else if(config.getProperty("browser").equalsIgnoreCase("firefox"))
+				{
+					WebDriverManager.firefoxdriver().setup();
+					driver=new FirefoxDriver();
+					}
+			
+		}
+		
+		//menu=new TopMenu(driver);
 		
 	}
 	

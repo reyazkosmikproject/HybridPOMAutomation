@@ -30,6 +30,10 @@ public class Utils extends Page {
 		
 		screenshotPath=System.getProperty("user.dir")+"\\screenshots\\";
 		
+		File screenshotsFolder=new File(screenshotPath);
+		
+		screenshotsFolder.mkdir();
+		
 		File srcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		
 		Date d=new Date();

@@ -40,6 +40,12 @@ public class SearchHotelPage extends Page {
 	
 	@FindBy(xpath = "//input[@id='Reset']")
 	WebElement resetbutton;
+	
+	@FindBy(xpath = "//span[@id='checkin_span']")
+	WebElement checkInDateError;
+	
+	@FindBy(xpath = "//span[@id='checkout_span']")
+	WebElement checkOutDateError;
 
 	public void location(String value) {
 
@@ -67,12 +73,14 @@ public class SearchHotelPage extends Page {
 
 	public void indate(String value) {
 
+		indate.clear();
 		type(indate, value);
 
 	}
 
 	public void outdate(String value) {
 
+		outdate.clear();
 		type(outdate, value);
 	}
 
@@ -96,6 +104,17 @@ public class SearchHotelPage extends Page {
 
 		click(resetbutton);
 
+	}
+	
+	
+	public String checkInDateError()
+	{
+		return checkInDateError.getText();
+	}
+	
+	public String checkOutDateError()
+	{
+		return checkOutDateError.getText();
 	}
 
 }
